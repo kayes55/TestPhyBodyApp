@@ -29,9 +29,10 @@ class InstructionsState: GKState {
     
     override func willExit(to nextState: GKState) {
         //remove instructions
-        scene.worldNode.enumerateChildNodes(withName: "Instructions") { (node, stop) in
+        print("Remove Instruction Called")
+        scene.worldNode.enumerateChildNodes(withName: "Instructions", using: {node, stop in
             node.run(SKAction.sequence([SKAction.fadeOut(withDuration: 0.6), SKAction.removeFromParent()]))
-        }
+        })
     }
     
     func setupInstructions() {

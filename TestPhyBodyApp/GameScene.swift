@@ -124,11 +124,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 }
             case is InstructionsState:
                 if touchLocation.y > playableStart {
-                    print("Enter Playing State")
+
                     gameState.enter(PlayingState.self)
                 }
             case is PlayingState:
-                print("Playing State: \(String(describing: player.movementComponent))")
                 player.movementComponent?.applyImpulse(lastUpdateTimeInterval)
             case is GameOverState:
                 if touchLocation.x < size.width * 0.6 && touchLocation.y > size.height * 0.38 && touchLocation.y < size.height * 0.48 {
@@ -137,6 +136,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             default:
                 break
             }
+            
+            
         }
         
     }

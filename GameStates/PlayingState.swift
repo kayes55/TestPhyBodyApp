@@ -34,7 +34,7 @@ class PlayingState: GKState {
     }
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
-        return (stateClass == FallingState.self) || (stateClass == GameOverState.self)
+        return (stateClass is FallingState.Type) || (stateClass is GameOverState.Type)
     }
     
     override func update(deltaTime seconds: TimeInterval) {
